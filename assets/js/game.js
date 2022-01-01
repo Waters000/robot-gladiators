@@ -4,7 +4,7 @@ var playerAttack = 10;
 var playerMoney = 10;
 
 var enemyNames = ['Roborto', 'Amy Android', 'Robo Trumble'];
-var enemyHealth = randomNumber()
+var enemyHealth = randomNumber(40, 60)
 var enemyAttack = 12;
 
 console.log(Math);
@@ -183,8 +183,8 @@ var shop = function() {
 };
 
 // function to generate a random numeric value
-var randomNumber = function(40, 60) {
-    var value = Math.floor(Math.random() * (21)) + 40;
+var randomNumber = function( 40, 60) {
+    var value = Math.floor(Math.random() * (21) + 40);
   
     return value;
   };
