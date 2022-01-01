@@ -4,8 +4,10 @@ var playerAttack = 10;
 var playerMoney = 10;
 
 var enemyNames = ['Roborto', 'Amy Android', 'Robo Trumble'];
-var enemyHealth = 50;
+var enemyHealth = randomNumber()
 var enemyAttack = 12;
+
+console.log(Math);
 
 // fight function (now with parameter for enemy's name)
 var fight = function(enemyName) {
@@ -29,7 +31,7 @@ var fight = function(enemyName) {
     }
 
     // remove enemy's health by subtracting the amount set in the playerAttack variable
-    enemyHealth = enemyHealth - playerAttack;
+    enemyHealth = Math.max(0, enemyHealth - playerAttack);
     console.log(
       playerName + ' attacked ' + enemyName + '. ' + enemyName + ' now has ' + enemyHealth + ' health remaining.'
     );
@@ -39,7 +41,7 @@ var fight = function(enemyName) {
       window.alert(enemyName + ' has died!');
 
       // award player money for winning
-      playerMoney = playerMoney + 20;
+      playerMoney = Math.max(0, playerMoney - enemyAttack);
 
       // leave while() loop since enemy is dead
       break;
@@ -48,7 +50,7 @@ var fight = function(enemyName) {
     }
 
     // remove players's health by subtracting the amount set in the enemyAttack variable
-    playerHealth = playerHealth - enemyAttack;
+    playerHealth = Math.max(0, playerHealth - enemyAttack);
     console.log(
       enemyName + ' attacked ' + playerName + '. ' + playerName + ' now has ' + playerHealth + ' health remaining.'
     );
@@ -179,6 +181,13 @@ var shop = function() {
       break;
   }
 };
+
+// function to generate a random numeric value
+var randomNumber = function(40, 60) {
+    var value = Math.floor(Math.random() * (21)) + 40;
+  
+    return value;
+  };
 
 // start first game when page loads
 startGame();
